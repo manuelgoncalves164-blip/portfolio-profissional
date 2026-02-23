@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
 
 <meta charset="UTF-8">
@@ -13,71 +14,65 @@
 
 <body>
 
+<div id="loader">
+
+<div class="spinner"></div>
+
+</div>
+
 <header class="header">
 
-<img src="assets/images/logo.png" class="logo">
+<div class="logo">MAGOP</div>
 
-<nav>
+<nav id="nav">
 
 <a href="#inicio">Início</a>
-<a href="#sobre">Sobre</a>
-<a href="#servicos">Serviços</a>
-<a href="#portfolio">Portfólio</a>
+<a href="#empresa">Empresa</a>
+<a href="#clientes">Clientes</a>
 <a href="#contacto">Contacto</a>
 
 </nav>
 
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+<button onclick="toggleDarkMode()" class="dark-btn">🌙</button>
+
 </header>
 
 
-<section id="inicio" class="hero">
-
-<div class="hero-content">
-
-<h1>Nós criamos, você brilha</h1>
-
-<p>Uma nova marca, uma paixão por criar, inovar e transformar.</p>
-
-<button onclick="abrirWhatsApp()" class="btn-whatsapp">
-Falar no WhatsApp
-</button>
-
-</div>
-
-</section>
-
-
-<section id="sobre" class="section">
+<section id="inicio" class="section hero reveal">
 
 <img src="assets/images/banner1.png">
 
 </section>
 
 
-<section id="servicos" class="section">
+<section id="empresa" class="section reveal">
 
 <img src="assets/images/banner2.png">
 
 </section>
 
 
-<section id="portfolio" class="section">
+<section id="clientes" class="section reveal">
 
 <img src="assets/images/banner3.png">
 
 </section>
 
 
-<section id="contacto" class="contact">
+<section id="contacto" class="contact reveal">
 
-<h2>Contacto</h2>
+<h2>CONTACTO</h2>
 
 <p>WhatsApp: +244 946 026 923</p>
 
 <p>Email: manuelgoncalves164@gmail.com</p>
 
-<button onclick="abrirWhatsApp()" class="btn-whatsapp">
-Contactar agora
+<button onclick="abrirWhatsApp()" class="whatsapp-btn">
+
+Falar no WhatsApp
+
 </button>
 
 </section>
@@ -85,7 +80,7 @@ Contactar agora
 
 <footer>
 
-<p>© 2026 MAGOP — Manuel Gonçalves</p>
+© 2026 MAGOP — Nós criamos, você brilha
 
 </footer>
 
@@ -100,4 +95,5 @@ Contactar agora
 <script src="assets/js/script.js"></script>
 
 </body>
+
 </html>
