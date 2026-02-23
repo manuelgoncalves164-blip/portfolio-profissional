@@ -1,96 +1,459 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>MAGOP | Início</title>
+<title>ECOGRID – Plataforma Profissional</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
 
-<link rel="stylesheet" href="assets/css/style.css">
+/* =========================
+RESET
+========================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto;
+}
+
+body{
+background:#ffffff;
+color:#111;
+transition:0.4s;
+overflow-x:hidden;
+}
+
+body.dark{
+background:#0f172a;
+color:#fff;
+}
+
+/* =========================
+LOADING PREMIUM
+========================= */
+
+#loader{
+position:fixed;
+width:100%;
+height:100vh;
+background:#000;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:9999;
+color:white;
+font-size:22px;
+letter-spacing:4px;
+animation:fadeOut 1s ease forwards;
+animation-delay:2s;
+}
+
+@keyframes fadeOut{
+to{
+opacity:0;
+visibility:hidden;
+}
+}
+
+/* =========================
+HEADER
+========================= */
+
+header{
+position:fixed;
+width:100%;
+top:0;
+background:rgba(255,255,255,0.8);
+backdrop-filter:blur(20px);
+padding:15px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:1000;
+transition:0.4s;
+}
+
+body.dark header{
+background:rgba(15,23,42,0.7);
+}
+
+.logo{
+font-weight:700;
+font-size:20px;
+}
+
+/* =========================
+MENU
+========================= */
+
+nav{
+display:flex;
+gap:25px;
+}
+
+nav a{
+text-decoration:none;
+color:inherit;
+font-weight:500;
+}
+
+/* =========================
+BOTÃO DARK MODE
+========================= */
+
+.toggle{
+width:50px;
+height:25px;
+background:#ccc;
+border-radius:20px;
+position:relative;
+cursor:pointer;
+}
+
+.toggle::before{
+content:"";
+position:absolute;
+width:21px;
+height:21px;
+background:white;
+border-radius:50%;
+top:2px;
+left:2px;
+transition:0.3s;
+}
+
+body.dark .toggle{
+background:#2563eb;
+}
+
+body.dark .toggle::before{
+transform:translateX(25px);
+}
+
+/* =========================
+HERO
+========================= */
+
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.hero h1{
+font-size:55px;
+margin-bottom:15px;
+animation:fadeUp 1s ease;
+}
+
+.hero p{
+font-size:20px;
+opacity:0.7;
+animation:fadeUp 1.5s ease;
+}
+
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* =========================
+PERFIL
+========================= */
+
+.profile{
+margin-top:40px;
+text-align:center;
+}
+
+.profile img{
+width:120px;
+height:120px;
+border-radius:50%;
+object-fit:cover;
+margin-bottom:10px;
+border:3px solid #2563eb;
+}
+
+/* =========================
+BOTÃO
+========================= */
+
+.btn{
+padding:12px 25px;
+background:#2563eb;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+margin-top:10px;
+}
+
+/* =========================
+CARDS
+========================= */
+
+.section{
+padding:100px 40px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.card{
+padding:30px;
+border-radius:15px;
+background:#f1f5f9;
+transition:0.4s;
+}
+
+body.dark .card{
+background:#1e293b;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+/* =========================
+FOOTER
+========================= */
+
+footer{
+padding:30px;
+text-align:center;
+opacity:0.6;
+}
+
+/* =========================
+MENU MOBILE
+========================= */
+
+.menu-btn{
+display:none;
+font-size:25px;
+cursor:pointer;
+}
+
+.mobile-menu{
+position:fixed;
+top:0;
+right:-100%;
+width:250px;
+height:100%;
+background:white;
+padding:40px;
+transition:0.4s;
+}
+
+body.dark .mobile-menu{
+background:#0f172a;
+}
+
+.mobile-menu.active{
+right:0;
+}
+
+@media(max-width:800px){
+
+nav{
+display:none;
+}
+
+.menu-btn{
+display:block;
+}
+
+}
+
+</style>
 
 </head>
-
 <body>
 
-<header class="navbar">
 
-<div class="logo">MAGOP</div>
+<div id="loader">
+ECOGRID
+</div>
+
+
+<header>
+
+<div class="logo">
+ECOGRID
+</div>
 
 <nav>
-
-<a href="index.html">Início</a>
-<a href="sobre.html">Sobre</a>
-<a href="servicos.html">Serviços</a>
-<a href="projetos.html">Projetos</a>
-<a href="clientes.html">Clientes</a>
-<a href="contato.html">Contato</a>
-
+<a href="#">Início</a>
+<a href="#">Sobre</a>
+<a href="#">Premium</a>
+<a href="#">Perfis</a>
 </nav>
 
-<button onclick="toggleDark()" class="dark-toggle">🌙</button>
+<div style="display:flex; gap:15px; align-items:center;">
+
+<div class="toggle" onclick="toggleDark()"></div>
+
+<div class="menu-btn" onclick="openMenu()">
+☰
+</div>
+
+</div>
 
 </header>
 
 
-<section class="hero fade">
+<div class="mobile-menu" id="mobileMenu">
 
-<div class="hero-content">
+<h2>Menu</h2>
 
-<h1>Nós criamos, você brilha</h1>
+<br>
 
-<p>Design. Marketing. Networking. Crescimento.</p>
+<a href="#">Início</a><br><br>
+<a href="#">Sobre</a><br><br>
+<a href="#">Premium</a><br><br>
+<a href="#">Perfis</a>
 
-<a href="sobre.html" class="btn">
+</div>
 
-Ver Perfil →
 
-</a>
+<section class="hero">
+
+<h1>
+Sua energia. Seu controle.
+</h1>
+
+<p>
+Plataforma inteligente de gestão energética
+</p>
+
+
+<div class="profile">
+
+<img id="profileImage"
+src="https://i.pravatar.cc/300"
+>
+
+<br>
+
+<input type="file"
+accept="image/*"
+onchange="loadImage(event)"
+>
+
+<br>
+
+<button class="btn">
+Atualizar Perfil
+</button>
 
 </div>
 
 </section>
 
 
-<section class="cards fade">
+
+<section class="section">
+
+<h2 style="margin-bottom:30px;">
+Recursos Premium
+</h2>
+
+<div class="cards">
 
 <div class="card">
-
-<h3>Design Premium</h3>
-
-<p>Identidade visual moderna e profissional</p>
-
+<h3>Monitoramento em tempo real</h3>
+<p>Veja consumo e economia</p>
 </div>
 
 <div class="card">
-
-<h3>Marketing Digital</h3>
-
-<p>Conquista clientes reais</p>
-
+<h3>Relatórios inteligentes</h3>
+<p>Análise automática</p>
 </div>
 
 <div class="card">
-
-<h3>Networking</h3>
-
-<p>Expansão e crescimento profissional</p>
+<h3>Perfis personalizados</h3>
+<p>Gestão individual</p>
+</div>
 
 </div>
 
 </section>
 
 
-<div onclick="whatsapp()" class="whatsapp">
 
-💬
+<footer>
 
-</div>
+© ECOGRID 2026 – Plataforma Profissional
+
+</footer>
 
 
-<script src="assets/js/script.js"></script>
+
+<script>
+
+/* DARK MODE */
+
+function toggleDark(){
+
+document.body.classList.toggle("dark");
+
+}
+
+
+/* MENU MOBILE */
+
+function openMenu(){
+
+document.getElementById("mobileMenu")
+.classList.toggle("active");
+
+}
+
+
+/* UPLOAD IMAGEM PERFIL */
+
+function loadImage(event){
+
+const image = document.getElementById("profileImage");
+
+image.src = URL.createObjectURL(event.target.files[0]);
+
+}
+
+
+/* SCROLL SUAVE */
+
+document.querySelectorAll("a").forEach(link=>{
+
+link.addEventListener("click",function(e){
+
+e.preventDefault();
+
+});
+
+});
+
+
+</script>
+
+
 
 </body>
 </html>
