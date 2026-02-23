@@ -1,52 +1,33 @@
-window.onload = () => {
+function whatsapp(){
 
-document.getElementById("loader").style.display = "none";
-
-};
-
-
-function abrirWhatsApp(){
-
-window.open(
-"https://wa.me/244946026923",
-"_blank"
-);
+window.open("https://wa.me/244946026923");
 
 }
 
-
-function toggleDarkMode(){
+function toggleDark(){
 
 document.body.classList.toggle("dark");
 
 }
 
 
-function toggleMenu(){
+const observer = new IntersectionObserver((entries)=>{
 
-document.getElementById("nav").classList.toggle("active");
+entries.forEach(entry=>{
 
-}
+if(entry.isIntersecting){
 
-
-function reveal(){
-
-let reveals = document.querySelectorAll(".reveal");
-
-reveals.forEach(el=>{
-
-let windowHeight = window.innerHeight;
-
-let elementTop = el.getBoundingClientRect().top;
-
-if(elementTop < windowHeight - 100){
-
-el.classList.add("active");
+entry.target.classList.add("show");
 
 }
 
 });
 
-}
+});
 
-window.addEventListener("scroll", reveal);
+
+document.querySelectorAll(".fade").forEach(el=>{
+
+observer.observe(el);
+
+});
