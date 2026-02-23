@@ -1,7 +1,8 @@
-const toggle = document.getElementById("darkModeToggle");
+function abrirWhatsApp(){
 
-toggle.onclick = () => {
-
-document.body.classList.toggle("light");
+window.open(
+"https://wa.me/244946026923",
+"_blank"
+);
 
 }
